@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>BLOOP — the button that wants to be pressed</title>
+<title>BLOOP — a Claude Opus 5.5 button</title>
 <meta name="description" content="One button. It's alive, it's hungry for your finger, and it never sounds the same twice.">
 <meta name="theme-color" content="#09060b">
 <style>
@@ -60,6 +60,11 @@
   .pop { position: fixed; pointer-events: none; font-weight: 900; font-size: 26px; color: #fff; white-space: nowrap;
     text-shadow: 0 0 18px rgba(var(--acc), .95); transform: translate(-50%, -50%); animation: rise 1.1s cubic-bezier(.15,.9,.3,1) forwards; }
   @keyframes rise { 0% { opacity: 0; transform: translate(-50%, -20%) scale(.6) } 15% { opacity: 1; transform: translate(-50%, -60%) scale(1.15) } 100% { opacity: 0; transform: translate(-50%, -260%) scale(1) } }
+  #credit {
+    position: fixed; top: max(16px, env(safe-area-inset-top)); left: 18px; pointer-events: none; line-height: 1.25;
+    font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: rgba(255,255,255,.4);
+  }
+  #credit b { display: block; font-size: 15px; letter-spacing: .32em; font-weight: 900; color: rgb(var(--acc)); text-shadow: 0 0 14px rgba(var(--acc), .5); margin-bottom: 3px; }
   #fallback { display: none; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 </style>
@@ -76,6 +81,7 @@
     <path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="w" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="x" d="M17 9l5 6M22 9l-5 6"/>
   </svg>
 </button>
+<div id="credit"><b>BLOOP</b>a Claude Opus 5.5 button</div>
 <div id="live" class="sr" aria-live="polite"></div>
 
 <script>
@@ -621,7 +627,7 @@ function layout() {
   Object.assign(hit.style, { left: (cx - hr) + 'px', top: (cy - hr) + 'px', width: hr * 2 + 'px', height: hr * 2 + 'px' });
   hit.style.setProperty('--r', R0 + 'px');
   $('#hint').style.top = (cy + R0 * 1.4 + 34) + 'px';
-  $('#combo').style.top = Math.max(12, cy - R0 * 1.4 - 96) + 'px';
+  $('#combo').style.top = Math.max(64, cy - R0 * 1.4 - 96) + 'px';
   if (hasGL) gl.viewport(0, 0, cvs.width, cvs.height);
 }
 addEventListener('resize', layout);

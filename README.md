@@ -1,4 +1,6 @@
-# BLOOP — the button that wants to be pressed
+# BLOOP — a Claude Opus 5.5 button
+
+*The button that wants to be pressed.*
 
 One button. It's a living blob of liquid matter, rendered in real time by a custom WebGL metaball shader.
 
